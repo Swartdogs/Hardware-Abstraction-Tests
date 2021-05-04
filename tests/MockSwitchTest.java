@@ -55,4 +55,40 @@ public class MockSwitchTest
 
         assertEquals(State.On, mockSwitch.get());
     }
+
+    @Test
+    public void testTransitionToOff()
+    {
+        MockSwitch mockSwitch = new MockSwitch(State.On);
+
+        assertFalse(mockSwitch.transitionedTo(State.Off));
+
+        mockSwitch.set(State.Off);
+
+        assertTrue(mockSwitch.transitionedTo(State.Off));
+    }
+
+    @Test
+    public void testTransitionToOn()
+    {
+        MockSwitch mockSwitch = new MockSwitch(State.Off);
+
+        assertFalse(mockSwitch.transitionedTo(State.On));
+
+        mockSwitch.set(State.On);
+
+        assertTrue(mockSwitch.transitionedTo(State.On));
+    }
+
+    @Test
+    public void testTransitionToReverse()
+    {
+        MockSwitch mockSwitch = new MockSwitch(State.Off);
+
+        assertFalse(mockSwitch.transitionedTo(State.Reverse));
+
+        mockSwitch.set(State.Reverse);
+
+        assertTrue(mockSwitch.transitionedTo(State.Reverse));
+    }
 }
