@@ -11,27 +11,28 @@ public class MockVelocitySensor extends VelocitySensor
 
     public MockVelocitySensor(double initialVelocity)
     {
-        _velocity = initialVelocity;
+        set(initialVelocity);
     }
 
     @Override
-    public double getRaw() 
+    protected double getRaw() 
     {
         return _velocity;
     }
     
     public void increment(double amount)
     {
-        _velocity += amount;
+        set(_velocity + amount);
     }
 
     public void decrement(double amount)
     {
-        _velocity -= amount;
+        set(_velocity - amount);
     }
 
     public void set(double velocity)
     {
         _velocity = velocity;
+        cache();
     }
 }

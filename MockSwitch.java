@@ -14,35 +14,36 @@ public class MockSwitch extends Switch
 
     public MockSwitch(State initialState) 
     {
-        _state = initialState;
+        set(initialState);
     }
 
     @Override
-    public State get() 
+    protected State getRaw() 
     {
         return _state;
     }
 
-    public void setState(State state) 
+    public void set(State state) 
     {
         _state = state;
+        cache();
     }
 
     @Override
     public void whenActivated(Command command) 
     {
-
+        return;
     }
 
     @Override
     public void whileActive(Command command) 
     {
-
+        return;
     }
 
     @Override
     public void cancelWhenActivated(Command command) 
     {
-
+        return;
     }
 }

@@ -61,6 +61,7 @@ public class MockSolenoidTest
     public void testDefaultConstructorInverted()
     {
         Solenoid solenoid = Solenoid.invert(new MockSolenoid());
+        solenoid.cache();
 
         assertEquals(ExtendState.Extended, solenoid.get());
     }
@@ -69,6 +70,7 @@ public class MockSolenoidTest
     public void testConstructorRetractedInverted()
     {
         Solenoid solenoid = Solenoid.invert(new MockSolenoid(ExtendState.Retracted));
+        solenoid.cache();
 
         assertEquals(ExtendState.Extended, solenoid.get());
     }
@@ -77,6 +79,7 @@ public class MockSolenoidTest
     public void testConstructorExtendedInverted()
     {
         Solenoid solenoid = Solenoid.invert(new MockSolenoid(ExtendState.Extended));
+        solenoid.cache();
 
         assertEquals(ExtendState.Retracted, solenoid.get());
     }

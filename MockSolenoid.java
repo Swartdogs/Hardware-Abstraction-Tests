@@ -13,23 +13,32 @@ public class MockSolenoid extends Solenoid
 
     public MockSolenoid(ExtendState initialState)
     {
-        _state = initialState;
+        set(initialState);
+    }
+
+    @Override
+    public void set(ExtendState state)
+    {
+        _state = state;
+        cache();
     }
 
     @Override
     public void extend() 
     {
         _state = ExtendState.Extended;
+        cache();
     }
 
     @Override
     public void retract() 
     {
         _state = ExtendState.Retracted;
+        cache();
     }
 
     @Override
-    public ExtendState get() 
+    protected ExtendState getRaw() 
     {
         return _state;
     }

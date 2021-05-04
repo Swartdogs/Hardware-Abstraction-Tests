@@ -39,7 +39,7 @@ public class MockSwitchTest
 
         assertEquals(State.On, mockSwitch.get());
 
-        mockSwitch.setState(State.Off);
+        mockSwitch.set(State.Off);
 
         assertEquals(State.Off, mockSwitch.get());
     }
@@ -51,7 +51,7 @@ public class MockSwitchTest
 
         assertEquals(State.Off, mockSwitch.get());
 
-        mockSwitch.setState(State.On);
+        mockSwitch.set(State.On);
 
         assertEquals(State.On, mockSwitch.get());
     }

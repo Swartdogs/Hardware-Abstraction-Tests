@@ -20,9 +20,15 @@ public class MockJoystick extends Joystick
         _z          = 0;
         _throttle   = 0;
         _buttons    = new MockSwitch[buttonCount];
+
+        for (int i = 0; i < _buttons.length; i++)
+        {
+            _buttons[i] = new MockSwitch();
+        }
     }
 
-    public double getX() 
+    @Override
+    protected double getRawX() 
     {
         return _x;
     }
@@ -30,9 +36,11 @@ public class MockJoystick extends Joystick
     public void setX(double x)
     {
         _x = x;
+        cache();
     }
 
-    public double getY() 
+    @Override
+    protected double getRawY() 
     {
         return _y;
     }
@@ -40,9 +48,11 @@ public class MockJoystick extends Joystick
     public void setY(double y)
     {
         _y = y;
+        cache();
     }
 
-    public double getZ()
+    @Override
+    protected double getRawZ()
     {
         return _z;
     }
@@ -50,18 +60,22 @@ public class MockJoystick extends Joystick
     public void setZ(double z)
     {
         _z = z;
+        cache();
     }
 
-    public double getThrottle()
+    @Override
+    protected double getRawThrottle()
     {
         return _throttle;
     }
 
-    public void getThrottle(double throttle)
+    public void setThrottle(double throttle)
     {
         _throttle = throttle;
+        cache();
     }
 
+    @Override
     public Switch getButton(int buttonNum) 
     {
         if (buttonNum < 1 || buttonNum > _buttons.length)
@@ -72,4 +86,9 @@ public class MockJoystick extends Joystick
         return _buttons[buttonNum - 1];
     }
     
+    @Override
+    public int getButtonCount()
+    {
+        return _buttons.length;
+    }
 }
