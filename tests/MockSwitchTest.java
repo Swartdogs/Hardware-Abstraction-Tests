@@ -13,7 +13,7 @@ public class MockSwitchTest
     {
         MockSwitch mockSwitch = new MockSwitch();
 
-        assertEquals(State.Off, mockSwitch.getState());
+        assertEquals(State.Off, mockSwitch.get());
     }
 
     @Test
@@ -21,7 +21,7 @@ public class MockSwitchTest
     {
         MockSwitch mockSwitch = new MockSwitch(State.Off);
 
-        assertEquals(State.Off, mockSwitch.getState());
+        assertEquals(State.Off, mockSwitch.get());
     }
 
     @Test
@@ -29,7 +29,7 @@ public class MockSwitchTest
     {
         MockSwitch mockSwitch = new MockSwitch(State.On);
 
-        assertEquals(State.On, mockSwitch.getState());
+        assertEquals(State.On, mockSwitch.get());
     }
 
     @Test
@@ -37,11 +37,11 @@ public class MockSwitchTest
     {
         MockSwitch mockSwitch = new MockSwitch(State.On);
 
-        assertEquals(State.On, mockSwitch.getState());
+        assertEquals(State.On, mockSwitch.get());
 
         mockSwitch.setState(State.Off);
 
-        assertEquals(State.Off, mockSwitch.getState());
+        assertEquals(State.Off, mockSwitch.get());
     }
 
     @Test
@@ -49,10 +49,10 @@ public class MockSwitchTest
     {
         MockSwitch mockSwitch = new MockSwitch(State.Off);
 
-        assertEquals(State.Off, mockSwitch.getState());
+        assertEquals(State.Off, mockSwitch.get());
 
         mockSwitch.setState(State.On);
 
-        assertEquals(State.On, mockSwitch.getState());
+        assertEquals(State.On, mockSwitch.get());
     }
 }

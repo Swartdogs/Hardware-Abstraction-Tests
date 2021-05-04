@@ -29,7 +29,7 @@ public class MockSolenoid extends Solenoid
     }
 
     @Override
-    public ExtendState getExtendState() 
+    public ExtendState get() 
     {
         return _state;
     }

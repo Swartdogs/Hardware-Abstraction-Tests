@@ -3,7 +3,6 @@ package frc.robot.abstraction.tests;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import frc.robot.Constants;
 import frc.robot.abstraction.MockPositionSensor;
 
 public class MockPositionSensorTest 
@@ -191,9 +190,9 @@ public class MockPositionSensorTest
     {
         MockPositionSensor mockPositionSensor = new MockPositionSensor(0);
 
-        mockPositionSensor.setScalingFunction(raw -> raw * Constants.DRIVE_ENCODER_SCALE);
-        mockPositionSensor.set(186711.0);
+        mockPositionSensor.setScalingFunction(raw -> raw * 2);
+        mockPositionSensor.set(4);
 
-        assertEquals(153.0, mockPositionSensor.get(), EPSILON);
+        assertEquals(8, mockPositionSensor.get(), EPSILON);
     }
 }

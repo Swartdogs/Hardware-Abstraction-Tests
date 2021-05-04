@@ -15,7 +15,7 @@ public class MockVelocitySensor extends VelocitySensor
     }
 
     @Override
-    public double getRawVelocity() 
+    public double getRaw() 
     {
         return _velocity;
     }

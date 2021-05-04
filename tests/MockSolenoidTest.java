@@ -14,7 +14,7 @@ public class MockSolenoidTest
     {
         MockSolenoid mockSolenoid = new MockSolenoid();
 
-        assertEquals(ExtendState.Retracted, mockSolenoid.getExtendState());
+        assertEquals(ExtendState.Retracted, mockSolenoid.get());
     }
 
     @Test
@@ -22,7 +22,7 @@ public class MockSolenoidTest
     {
         MockSolenoid mockSolenoid = new MockSolenoid(ExtendState.Retracted);
 
-        assertEquals(ExtendState.Retracted, mockSolenoid.getExtendState());
+        assertEquals(ExtendState.Retracted, mockSolenoid.get());
     }
 
     @Test
@@ -30,7 +30,7 @@ public class MockSolenoidTest
     {
         MockSolenoid mockSolenoid = new MockSolenoid(ExtendState.Extended);
 
-        assertEquals(ExtendState.Extended, mockSolenoid.getExtendState());
+        assertEquals(ExtendState.Extended, mockSolenoid.get());
     }
 
     @Test
@@ -38,11 +38,11 @@ public class MockSolenoidTest
     {
         MockSolenoid mockSolenoid = new MockSolenoid(ExtendState.Retracted);
 
-        assertEquals(ExtendState.Retracted, mockSolenoid.getExtendState());
+        assertEquals(ExtendState.Retracted, mockSolenoid.get());
 
         mockSolenoid.extend();
 
-        assertEquals(ExtendState.Extended, mockSolenoid.getExtendState());
+        assertEquals(ExtendState.Extended, mockSolenoid.get());
     }
 
     @Test
@@ -50,11 +50,11 @@ public class MockSolenoidTest
     {
         MockSolenoid mockSolenoid = new MockSolenoid(ExtendState.Extended);
 
-        assertEquals(ExtendState.Extended, mockSolenoid.getExtendState());
+        assertEquals(ExtendState.Extended, mockSolenoid.get());
 
         mockSolenoid.retract();
 
-        assertEquals(ExtendState.Retracted, mockSolenoid.getExtendState());
+        assertEquals(ExtendState.Retracted, mockSolenoid.get());
     }
 
     @Test
@@ -62,7 +62,7 @@ public class MockSolenoidTest
     {
         Solenoid solenoid = Solenoid.invert(new MockSolenoid());
 
-        assertEquals(ExtendState.Extended, solenoid.getExtendState());
+        assertEquals(ExtendState.Extended, solenoid.get());
     }
 
     @Test
@@ -70,7 +70,7 @@ public class MockSolenoidTest
     {
         Solenoid solenoid = Solenoid.invert(new MockSolenoid(ExtendState.Retracted));
 
-        assertEquals(ExtendState.Extended, solenoid.getExtendState());
+        assertEquals(ExtendState.Extended, solenoid.get());
     }
 
     @Test
@@ -78,7 +78,7 @@ public class MockSolenoidTest
     {
         Solenoid solenoid = Solenoid.invert(new MockSolenoid(ExtendState.Extended));
 
-        assertEquals(ExtendState.Retracted, solenoid.getExtendState());
+        assertEquals(ExtendState.Retracted, solenoid.get());
     }
 
     @Test
@@ -87,11 +87,11 @@ public class MockSolenoidTest
         MockSolenoid mockSolenoid = new MockSolenoid(ExtendState.Extended);
         Solenoid     solenoid     = Solenoid.invert(mockSolenoid);
 
-        assertEquals(ExtendState.Extended, mockSolenoid.getExtendState());
+        assertEquals(ExtendState.Extended, mockSolenoid.get());
 
         solenoid.extend();
 
-        assertEquals(ExtendState.Retracted, mockSolenoid.getExtendState());
+        assertEquals(ExtendState.Retracted, mockSolenoid.get());
     }
 
     @Test
@@ -100,11 +100,11 @@ public class MockSolenoidTest
         MockSolenoid mockSolenoid = new MockSolenoid(ExtendState.Retracted);
         Solenoid     solenoid     = Solenoid.invert(mockSolenoid);
 
-        assertEquals(ExtendState.Retracted, mockSolenoid.getExtendState());
+        assertEquals(ExtendState.Retracted, mockSolenoid.get());
 
         solenoid.retract();
 
-        assertEquals(ExtendState.Extended, mockSolenoid.getExtendState());
+        assertEquals(ExtendState.Extended, mockSolenoid.get());
     }
 
     @Test
@@ -114,13 +114,13 @@ public class MockSolenoidTest
         MockSolenoid solenoid2 = new MockSolenoid(ExtendState.Retracted);
         Solenoid     solenoid  = Solenoid.compose(solenoid1, solenoid2);
 
-        assertEquals(ExtendState.Retracted, solenoid1.getExtendState());
-        assertEquals(ExtendState.Retracted, solenoid2.getExtendState());
+        assertEquals(ExtendState.Retracted, solenoid1.get());
+        assertEquals(ExtendState.Retracted, solenoid2.get());
 
         solenoid.extend();
 
-        assertEquals(ExtendState.Extended, solenoid1.getExtendState());
-        assertEquals(ExtendState.Extended, solenoid2.getExtendState());
+        assertEquals(ExtendState.Extended, solenoid1.get());
+        assertEquals(ExtendState.Extended, solenoid2.get());
     }
 
     @Test
@@ -130,13 +130,13 @@ public class MockSolenoidTest
         MockSolenoid solenoid2 = new MockSolenoid(ExtendState.Extended);
         Solenoid     solenoid  = Solenoid.compose(solenoid1, solenoid2);
 
-        assertEquals(ExtendState.Extended, solenoid1.getExtendState());
-        assertEquals(ExtendState.Extended, solenoid2.getExtendState());
+        assertEquals(ExtendState.Extended, solenoid1.get());
+        assertEquals(ExtendState.Extended, solenoid2.get());
 
         solenoid.retract();
 
-        assertEquals(ExtendState.Retracted, solenoid1.getExtendState());
-        assertEquals(ExtendState.Retracted, solenoid2.getExtendState());
+        assertEquals(ExtendState.Retracted, solenoid1.get());
+        assertEquals(ExtendState.Retracted, solenoid2.get());
     }
 
     @Test
@@ -146,13 +146,13 @@ public class MockSolenoidTest
         MockSolenoid solenoid2 = new MockSolenoid(ExtendState.Extended);
         Solenoid     solenoid  = Solenoid.compose(solenoid1, Solenoid.invert(solenoid2));
 
-        assertEquals(ExtendState.Retracted, solenoid1.getExtendState());
-        assertEquals(ExtendState.Extended,  solenoid2.getExtendState());
+        assertEquals(ExtendState.Retracted, solenoid1.get());
+        assertEquals(ExtendState.Extended,  solenoid2.get());
 
         solenoid.extend();
 
-        assertEquals(ExtendState.Extended,  solenoid1.getExtendState());
-        assertEquals(ExtendState.Retracted, solenoid2.getExtendState());
+        assertEquals(ExtendState.Extended,  solenoid1.get());
+        assertEquals(ExtendState.Retracted, solenoid2.get());
     }
 
     @Test
@@ -162,12 +162,12 @@ public class MockSolenoidTest
         MockSolenoid solenoid2 = new MockSolenoid(ExtendState.Retracted);
         Solenoid     solenoid  = Solenoid.compose(solenoid1, Solenoid.invert(solenoid2));
 
-        assertEquals(ExtendState.Extended,  solenoid1.getExtendState());
-        assertEquals(ExtendState.Retracted, solenoid2.getExtendState());
+        assertEquals(ExtendState.Extended,  solenoid1.get());
+        assertEquals(ExtendState.Retracted, solenoid2.get());
 
         solenoid.retract();
 
-        assertEquals(ExtendState.Retracted, solenoid1.getExtendState());
-        assertEquals(ExtendState.Extended,  solenoid2.getExtendState());
+        assertEquals(ExtendState.Retracted, solenoid1.get());
+        assertEquals(ExtendState.Extended,  solenoid2.get());
     }
 }

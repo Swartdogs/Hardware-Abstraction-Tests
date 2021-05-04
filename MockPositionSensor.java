@@ -15,7 +15,7 @@ public class MockPositionSensor extends PositionSensor
     }
 
     @Override
-    public double getRawPosition() 
+    public double getRaw() 
     {
         return _position;
     }
