@@ -24,5 +24,6 @@ public class MockNetworkTableBoolean extends NetworkTableBoolean
     public void set(boolean value) 
     {
         _value = value;
+        cache();
     }
 }

@@ -4,12 +4,12 @@ public class MockNetworkTableString extends NetworkTableString
 {
     private String _value;
 
-    private MockNetworkTableString()
+    public MockNetworkTableString()
     {
         this("");
     }
 
-    private MockNetworkTableString(String initialValue)
+    public MockNetworkTableString(String initialValue)
     {
         set(initialValue);
     }
@@ -24,5 +24,6 @@ public class MockNetworkTableString extends NetworkTableString
     public void set(String value) 
     {
         _value = value;
+        cache();
     }
 }

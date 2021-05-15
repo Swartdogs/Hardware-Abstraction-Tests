@@ -1,6 +1,5 @@
 package frc.robot.abstraction;
 
-import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.abstraction.Enumerations.State;
 
 public class MockSwitch extends Switch 
@@ -30,19 +29,19 @@ public class MockSwitch extends Switch
     }
 
     @Override
-    public void whenActivated(Command command) 
+    public void whenActivated(SwartdogCommand command, boolean interruptible) 
     {
         return;
     }
 
     @Override
-    public void whileActive(Command command) 
+    public void whileActive(SwartdogCommand command, boolean interruptible) 
     {
         return;
     }
 
     @Override
-    public void cancelWhenActivated(Command command) 
+    public void cancelWhenActivated(SwartdogCommand command) 
     {
         return;
     }

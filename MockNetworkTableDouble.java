@@ -24,6 +24,7 @@ public class MockNetworkTableDouble extends NetworkTableDouble
     public void set(double value) 
     {
         _value = value;
+        cache();
     }
     
 }
