@@ -30,4 +30,28 @@ public class MockShuffleboardTab extends ShuffleboardTab
     {
         return null;
     }
+
+    @Override
+    public void addAutonomousChooser(int x, int y, int w, int h, BuiltInWidgets widget)
+    {
+
+    }
+
+    @Override
+    public void addAutonomous(String name, SwartdogCommand autonomous)
+    {
+
+    }
+
+    @Override
+    public void addDefaultAutonomous(String name, SwartdogCommand autonomous)
+    {
+
+    }
+
+    @Override
+    public SwartdogCommand getSelectedAutonomous()
+    {
+        return null;
+    }
 }
