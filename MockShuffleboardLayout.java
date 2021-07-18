@@ -2,6 +2,7 @@ package frc.robot.abstraction;
 
 import java.util.Map;
 
+import edu.wpi.first.wpilibj.shuffleboard.BuiltInLayouts;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 
 public class MockShuffleboardLayout extends ShuffleboardLayout 
@@ -22,5 +23,11 @@ public class MockShuffleboardLayout extends ShuffleboardLayout
     protected NetworkTableString addString(String networkTableId, String defaultValue, BuiltInWidgets widget, Map<String, Object> properties) 
     {
         return null;
-    }    
+    }
+    
+    @Override
+    protected ShuffleboardLayout addLayout(String layoutName, BuiltInLayouts layout, int x, int y, Map<String, Object> properties)
+    {
+        return null;
+    }
 }
