@@ -21,9 +21,10 @@ public class MockPositionSensor extends PositionSensor
     }
 
     @Override
-    public void reset() 
+    public void set(double newPosition)
     {
-        set(0);
+        _position = newPosition;
+        cache();
     }
     
     public void increment(double amount)
@@ -34,11 +35,5 @@ public class MockPositionSensor extends PositionSensor
     public void decrement(double amount)
     {
         set(_position - amount);
-    }
-
-    public void set(double position)
-    {
-        _position = position;
-        cache();
     }
 }

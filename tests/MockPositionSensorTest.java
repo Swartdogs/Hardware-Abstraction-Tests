@@ -48,7 +48,7 @@ public class MockPositionSensorTest
 
         assertEquals(0, mockPositionSensor.get(), EPSILON);
 
-        mockPositionSensor.reset();
+        mockPositionSensor.set(0);
 
         assertEquals(0, mockPositionSensor.get(), EPSILON);
     }
@@ -60,7 +60,7 @@ public class MockPositionSensorTest
 
         assertEquals(17, mockPositionSensor.get(), EPSILON);
 
-        mockPositionSensor.reset();
+        mockPositionSensor.set(0);
 
         assertEquals(0, mockPositionSensor.get(), EPSILON);
     }
@@ -72,7 +72,7 @@ public class MockPositionSensorTest
 
         assertEquals(-105, mockPositionSensor.get(), EPSILON);
 
-        mockPositionSensor.reset();
+        mockPositionSensor.set(0);
 
         assertEquals(0, mockPositionSensor.get(), EPSILON);
     }
