@@ -15,7 +15,7 @@ public class MockNetworkTableString extends NetworkTableString
     }
 
     @Override
-    protected String getRaw() 
+    public String get() 
     {
         return _value;
     }
@@ -24,6 +24,5 @@ public class MockNetworkTableString extends NetworkTableString
     public void set(String value) 
     {
         _value = value;
-        cache();
     }
 }

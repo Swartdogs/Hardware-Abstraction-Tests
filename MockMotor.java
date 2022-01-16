@@ -14,7 +14,7 @@ public class MockMotor extends Motor
     }
 
     @Override
-    protected double getRaw() 
+    public double get() 
     {
         return _speed;
     }
@@ -35,6 +35,5 @@ public class MockMotor extends Motor
     public void set(double speed) 
     {
         _speed = speed;
-        cache();
     }
 }

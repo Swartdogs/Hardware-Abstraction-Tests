@@ -17,7 +17,7 @@ public class MockSwitch extends Switch
     }
 
     @Override
-    protected State getRaw() 
+    public State get() 
     {
         return _state;
     }
@@ -25,24 +25,5 @@ public class MockSwitch extends Switch
     public void set(State state) 
     {
         _state = state;
-        cache();
-    }
-
-    @Override
-    public void whenActivated(SwartdogCommand command, boolean interruptible) 
-    {
-        return;
-    }
-
-    @Override
-    public void whileActive(SwartdogCommand command, boolean interruptible) 
-    {
-        return;
-    }
-
-    @Override
-    public void cancelWhenActivated(SwartdogCommand command) 
-    {
-        return;
     }
 }

@@ -15,7 +15,7 @@ public class MockNetworkTableDouble extends NetworkTableDouble
     }
 
     @Override
-    protected double getRaw() 
+    public double get() 
     {
         return _value;
     }
@@ -24,7 +24,5 @@ public class MockNetworkTableDouble extends NetworkTableDouble
     public void set(double value) 
     {
         _value = value;
-        cache();
-    }
-    
+    }    
 }

@@ -15,16 +15,15 @@ public class MockPositionSensor extends PositionSensor
     }
 
     @Override
-    public double getRaw() 
+    public double get() 
     {
-        return _position;
+        return _scalingFunction.applyAsDouble(_position);
     }
 
     @Override
     public void set(double newPosition)
     {
         _position = newPosition;
-        cache();
     }
     
     public void increment(double amount)

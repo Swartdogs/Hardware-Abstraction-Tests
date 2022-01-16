@@ -15,7 +15,7 @@ public class MockNetworkTableBoolean extends NetworkTableBoolean
     }
 
     @Override
-    protected boolean getRaw() 
+    public boolean get() 
     {
         return _value;
     }
@@ -24,6 +24,5 @@ public class MockNetworkTableBoolean extends NetworkTableBoolean
     public void set(boolean value) 
     {
         _value = value;
-        cache();
     }
 }

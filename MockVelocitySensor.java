@@ -15,7 +15,7 @@ public class MockVelocitySensor extends VelocitySensor
     }
 
     @Override
-    protected double getRaw() 
+    public double get() 
     {
         return _velocity;
     }
@@ -33,6 +33,5 @@ public class MockVelocitySensor extends VelocitySensor
     public void set(double velocity)
     {
         _velocity = velocity;
-        cache();
     }
 }

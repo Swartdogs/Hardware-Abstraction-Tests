@@ -28,7 +28,7 @@ public class MockJoystick extends Joystick
     }
 
     @Override
-    protected double getRawX() 
+    public double getX() 
     {
         return _x;
     }
@@ -36,11 +36,10 @@ public class MockJoystick extends Joystick
     public void setX(double x)
     {
         _x = x;
-        cache();
     }
 
     @Override
-    protected double getRawY() 
+    public double getY() 
     {
         return _y;
     }
@@ -48,11 +47,10 @@ public class MockJoystick extends Joystick
     public void setY(double y)
     {
         _y = y;
-        cache();
     }
 
     @Override
-    protected double getRawZ()
+    public double getZ()
     {
         return _z;
     }
@@ -60,11 +58,10 @@ public class MockJoystick extends Joystick
     public void setZ(double z)
     {
         _z = z;
-        cache();
     }
 
     @Override
-    protected double getRawThrottle()
+    public double getThrottle()
     {
         return _throttle;
     }
@@ -72,7 +69,6 @@ public class MockJoystick extends Joystick
     public void setThrottle(double throttle)
     {
         _throttle = throttle;
-        cache();
     }
 
     @Override
