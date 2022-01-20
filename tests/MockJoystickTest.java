@@ -1,7 +1,9 @@
 package frc.robot.abstraction.tests;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import org.junit.jupiter.api.Test;
 
 import frc.robot.abstraction.MockJoystick;
 import frc.robot.abstraction.Switch;

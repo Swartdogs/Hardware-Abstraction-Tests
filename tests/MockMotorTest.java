@@ -1,23 +1,15 @@
 package frc.robot.abstraction.tests;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
-import org.junit.runner.RunWith;
-
-import static org.junit.Assert.*;
-
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import frc.robot.abstraction.MockMotor;
 import frc.robot.abstraction.Motor;
 import frc.robot.abstraction.PositionSensor;
 import frc.robot.abstraction.VelocitySensor;
 
-@RunWith(Parameterized.class)
 public class MockMotorTest 
 {
     private static final double EPSILON = 1e-2;
@@ -25,24 +17,7 @@ public class MockMotorTest
     private MockMotor _mockMotor1;
     private MockMotor _mockMotor2;
 
-    private double _expected;
-
-    public MockMotorTest(Integer expected)
-    {
-        _expected = expected;
-    }
-
-    @Parameters
-    public static Collection<Integer> speeds()
-    {
-        return Arrays.asList(new Integer[] {
-            0,
-            17,
-            -105
-        });
-    }
-
-    @Before
+    @BeforeEach
     public void initialize()
     {
         _mockMotor1 = new MockMotor();
@@ -77,14 +52,6 @@ public class MockMotorTest
         _mockMotor1.set(-105);
 
         assertEquals(-105, _mockMotor1.get(), EPSILON);
-    }
-
-    @Test
-    public void testSetMotor()
-    {
-        _mockMotor1.set(_expected);
-
-        assertEquals(_expected, _mockMotor1.get(), EPSILON);
     }
 
     @Test
